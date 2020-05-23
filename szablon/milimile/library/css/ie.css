@@ -1,0 +1,891 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: IE Stylesheet
+
+So instead of using the respond.js file to add media query support
+to IE, we're going to use SASS to create an easily readable css file.
+Here, we import all the styles the standard stylesheet gets, only
+without the media queries. No need to worry about editing anything!
+
+******************************************************************/
+/******************************************************************
+IMPORTS & DEPENDENCIES
+Remember, all the BASE styles are called already since IE can
+read those. Below, we need to import only the stuff IE can't
+understand (what's inside the media queries). We also need to
+import the mixins file so SASS can understand the variables.
+******************************************************************/
+/******************************************************************
+Site Name: milimile
+Author: Magda Zelezik
+
+Stylesheet: Variables
+
+Here is where we declare all our variables like colors, fonts,
+base values, and defaults. We want to make sure this file ONLY
+contains variables that way our files don't get all messy.
+No one likes a mess.
+
+******************************************************************/
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
+*********************/
+/*
+Here's a great tutorial on how to
+use color variables properly:
+http://sachagreif.com/sass-color-variables/
+*/
+/******************************************************************
+Site Name: milimile
+Author: Magda Zelezik
+
+Stylesheet: Typography
+
+
+
+******************************************************************/
+/*
+some nice typographical defaults
+more here: http://www.newnet-soft.com/blog/csstypography
+*/
+p {
+  -ms-word-wrap: keep-all;
+  word-break: keep-all;
+  word-wrap: keep-all;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  hyphens: none;
+  -webkit-font-feature-settings: "liga", "dlig";
+  -moz-font-feature-settings: "liga=1, dlig=1";
+  -ms-font-feature-settings: "liga", "dlig";
+  -o-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig"; }
+
+/******************************************************************
+Site Name: milimile
+Author: Magda Zelezik
+
+Stylesheet: Mixins Stylesheet
+
+
+******************************************************************/
+/*********************
+TRANSITION
+*********************/
+/*
+USAGE: @include transition(all 0.2s ease-in-out);
+*/
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can
+really slow down your CSS. Don't overdo it.
+*********************/
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+/*********************
+BOX SIZING
+*********************/
+/* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So
+probably best not to use it. I mean, were you going to anyway? */
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: IE Grid Styles
+
+Since the example grid is based on media queries, so rather than
+setup some js library that would make IE8 and below understand
+media queries, let's just add some styles that serves a fixed grid.
+
+Again, if you want to roll your own, just remove this junk and put
+whatever you use in here.
+
+******************************************************************/
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: 481px and Up Stylesheet
+
+This stylesheet is loaded for larger devices. It's set to
+481px because at 480px it would load on a landscaped iPhone.
+This isn't ideal because then you would be loading all those
+extra styles on that same mobile connection.
+
+A word of warning. This size COULD be a larger mobile device,
+so you still want to keep it pretty light and simply expand
+upon your base.scss styles.
+
+******************************************************************/
+/*
+IMPORTANT NOTE ABOUT SASS 3.3 & UP
+You can't use @extend within media queries
+anymore, so just be aware that if you drop
+them in here, they won't work.
+*/
+/*********************
+NAVIGATION STYLES
+*********************/
+/* .menu is clearfixed inside mixins.scss */
+.menu {
+  /* end .menu ul */ }
+  .menu ul {
+    /* end .menu ul li */
+    /* highlight current page */
+    /* end current highlighters */ }
+    .menu ul li {
+      /*
+      plan your menus and drop-downs wisely.
+      */ }
+      .menu ul li a {
+        /*
+        you can use hover styles here even though this size
+        has the possibility of being a mobile device.
+        */ }
+
+/* end .menu */
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+/* entry content */
+.entry-content {
+  /* at this larger size, we can start to align images */ }
+  .entry-content .alignleft, .entry-content img.alignleft {
+    margin-right: 1.5em;
+    display: inline;
+    float: left; }
+  .entry-content .alignright, .entry-content img.alignright {
+    margin-left: 1.5em;
+    display: inline;
+    float: right; }
+  .entry-content .aligncenter, .entry-content img.aligncenter {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    clear: both; }
+
+/* end .entry-content */
+/*********************
+FOOTER STYLES
+*********************/
+/*
+check your menus here. do they look good?
+do they need tweaking?
+*/
+/* end .footer-links */
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Tablet & Small Desktop Stylesheet
+
+Here's where you can start getting into the good stuff.
+This size will work on iPads, other tablets, and desktops.
+So you can start working with more styles, background images,
+and other resources. You'll also notice the grid starts to
+come into play. Have fun!
+
+******************************************************************/
+/*********************
+GENERAL STYLES
+*********************/
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+.wrap {
+  width: 760px; }
+
+.t_2of3 {
+  float: none;
+  margin: auto; }
+
+/*********************
+HEADER STYLES
+*********************/
+/*********************
+NAVIGATION STYLES
+*********************/
+.nav {
+  border: 0;
+  /* end .menu ul li */
+  /* highlight current page */
+  /* end current highlighters */ }
+  .nav ul {
+    background: #000;
+    margin-top: 0; }
+  .nav li {
+    float: left;
+    position: relative;
+    /*
+    plan your menus and drop-downs wisely.
+    */
+    /* showing sub-menus */ }
+    .nav li a {
+      border-bottom: 0;
+      /*
+      you can use hover styles here even though this size
+      has the possibility of being a mobile device.
+      */ }
+    .nav li ul.sub-menu,
+    .nav li ul.children {
+      margin-top: 0;
+      border: 1px solid #ccc;
+      border-top: 0;
+      position: absolute;
+      visibility: hidden;
+      z-index: 8999;
+      /* highlight sub-menu current page */ }
+      .nav li ul.sub-menu li,
+      .nav li ul.children li {
+        /*
+        if you need to go deeper, go nuts
+        just remember deeper menus suck
+        for usability. k, bai.
+        */ }
+        .nav li ul.sub-menu li a,
+        .nav li ul.children li a {
+          padding-left: 10px;
+          border-right: 0;
+          display: block;
+          width: 180px;
+          border-bottom: 1px solid #ccc; }
+        .nav li ul.sub-menu li:last-child a,
+        .nav li ul.children li:last-child a {
+          border-bottom: 0; }
+        .nav li ul.sub-menu li ul,
+        .nav li ul.children li ul {
+          top: 0;
+          left: 100%; }
+    .nav li:hover > ul {
+      top: auto;
+      visibility: visible; }
+
+/* end .nav */
+/*********************
+SIDEBARS & ASIDES
+*********************/
+.sidebar {
+  margin-top: 2.2em; }
+
+.widgettitle {
+  border-bottom: 2px solid #444;
+  margin-bottom: 0.75em; }
+
+.widget {
+  padding: 0 10px;
+  margin: 2.2em 0; }
+  .widget ul li {
+    margin-bottom: 0.75em;
+    /* deep nesting */ }
+    .widget ul li ul {
+      margin-top: 0.75em;
+      padding-left: 1em; }
+
+/* links widget */
+/* meta widget */
+/* pages widget */
+/* recent-posts widget */
+/* archives widget */
+/* tag-cloud widget */
+/* calendar widget */
+/* category widget */
+/* recent-comments widget */
+/* search widget */
+/* text widget */
+/*********************
+FOOTER STYLES
+*********************/
+/*
+you'll probably need to do quite a bit
+of overriding here if you styled them for
+mobile. Make sure to double check these!
+*/
+.footer-links ul li {
+  /*
+  be careful with the depth of your menus.
+  it's very rare to have multi-depth menus in
+  the footer.
+  */ }
+
+/* end .footer-links */
+/******************************************************************
+Site Name: milimile
+Author: Magda Zelezik
+
+Stylesheet: Desktop Stylsheet
+******************************************************************/
+a:hover {
+  color: #7BAF94; }
+
+.wrap {
+  width: 90%;
+  position: relative; }
+
+.desktop-menu {
+  width: 100%;
+  height: auto; }
+
+#mobile-nav-panel {
+  display: none; }
+
+.top-nav {
+  position: fixed;
+  width: 100%;
+  height: 10em;
+  background-color: #fff;
+  top: 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .top-nav li a {
+    position: relative;
+    display: inline-block; }
+    .top-nav li a:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      padding: 10px 0;
+      width: 100%;
+      height: 1em;
+      max-width: 0;
+      border-bottom: 2px solid #7BAF94;
+      color: #7BAF94;
+      content: attr(data-hover);
+      -webkit-transition: max-width 0.5s;
+      -moz-transition: max-width 0.5s;
+      transition: max-width 0.5s; }
+    .top-nav li a:hover:before, .top-nav li a:focus:before {
+      max-width: 100%; }
+  .top-nav .menu-item-home {
+    background-image: url("../images/full-logo.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 11em;
+    height: 7em;
+    margin-top: 0.5em;
+    margin-left: 3.5em; }
+    .top-nav .menu-item-home a {
+      display: block;
+      width: 100%;
+      height: 100%; }
+      .top-nav .menu-item-home a:before {
+        display: none; }
+  .top-nav.moved {
+    top: 0px;
+    height: 5em;
+    justify-content: flex-end; }
+    .top-nav.moved .menu-item-home {
+      margin-top: 1em;
+      margin-left: 1em;
+      background-image: url("../images/cropp-logo.svg");
+      width: 4em;
+      height: 3em;
+      order: -1;
+      margin-right: auto; }
+  .top-nav ul.sub-menu {
+    background: #fff;
+    left: -42%;
+    border: 0px solid white; }
+    .top-nav ul.sub-menu li {
+      border-bottom: 1px solid #D8EFE4; }
+      .top-nav ul.sub-menu li a {
+        color: #7BAF94; }
+
+.nav li {
+  background-color: transparent; }
+
+.nav li ul.sub-menu, .nav li ul.children {
+  border: none; }
+
+#container {
+  margin-bottom: -15em;
+  padding: 3em 0; }
+  #container:after {
+    height: 15em; }
+
+footer, .footer {
+  width: 100%;
+  height: 15em;
+  background-color: #D8EFE4;
+  background-image: url("../images/pattern.png");
+  background-size: auto auto;
+  background-repeat: repeat;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  z-index: 11; }
+  footer #inner-footer, .footer #inner-footer {
+    margin: 0;
+    margin-left: 5%;
+    width: 14%;
+    font-size: 1.1em; }
+    footer #inner-footer .footer-nav, .footer #inner-footer .footer-nav {
+      position: absolute;
+      bottom: 0px;
+      top: 0px;
+      margin-top: 4em;
+      width: 100%;
+      height: auto;
+      text-align: left;
+      background-color: transparent; }
+      footer #inner-footer .footer-nav li, .footer #inner-footer .footer-nav li {
+        display: block;
+        float: none;
+        text-align: left;
+        border-bottom: none; }
+        footer #inner-footer .footer-nav li a, .footer #inner-footer .footer-nav li a {
+          padding: 0em; }
+  footer #sidebar1, .footer #sidebar1 {
+    width: 75%;
+    margin: 0;
+    display: flex;
+    height: 14em;
+    color: black;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.1em; }
+    footer #sidebar1 .widget, .footer #sidebar1 .widget {
+      width: 30%;
+      margin: 0; }
+      footer #sidebar1 .widget .widgettitle, .footer #sidebar1 .widget .widgettitle {
+        display: none; }
+    footer #sidebar1 .widget_simpleimage, .footer #sidebar1 .widget_simpleimage {
+      text-align: right;
+      width: 15%; }
+      footer #sidebar1 .widget_simpleimage img, .footer #sidebar1 .widget_simpleimage img {
+        width: 6.5em;
+        height: 6.5em;
+        border-radius: 50%; }
+    footer #sidebar1 .textwidget, .footer #sidebar1 .textwidget {
+      width: 30%;
+      font-size: 0.7em;
+      padding: 1.5em 3em 1.5em 0em; }
+    footer #sidebar1 .widget_mc4wp_form_widget, .footer #sidebar1 .widget_mc4wp_form_widget {
+      margin-right: auto; }
+      footer #sidebar1 .widget_mc4wp_form_widget .widgettitle, .footer #sidebar1 .widget_mc4wp_form_widget .widgettitle {
+        display: block;
+        border-bottom: none;
+        color: #F95759;
+        text-transform: uppercase;
+        font-family: "PT Sans", Helvetica, Arial, sans-serif;
+        margin: 0.8em 0em;
+        font-size: 1em; }
+      footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields, .footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        font-size: 0.8em; }
+        footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields p, .footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields p {
+          margin: 0; }
+          footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields p input, .footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields p input {
+            margin-bottom: 0;
+            background-color: transparent;
+            border: 1px solid #F95759;
+            margin-top: 1em;
+            border-radius: 0; }
+        footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields p:first-child, .footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields p:first-child {
+          width: 70%; }
+          footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields p:first-child label, .footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields p:first-child label {
+            font-size: 0.9em;
+            text-transform: none;
+            color: black;
+            font-weight: normal;
+            font-family: "PT Serif", Cambria, Times New Roman, Times, serif; }
+        footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields p:nth-child(2), .footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields p:nth-child(2) {
+          width: 28%;
+          align-self: flex-end; }
+          footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields p:nth-child(2) input, .footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields p:nth-child(2) input {
+            background-color: #F95759;
+            font-size: 0.9em;
+            padding: 1.1em;
+            border: none;
+            font-family: "PT Sans", Helvetica, Arial, sans-serif;
+            text-transform: uppercase;
+            color: white;
+            -webkit-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out; }
+            footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields p:nth-child(2) input:hover, .footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields p:nth-child(2) input:hover {
+              background-color: rgba(224, 102, 99, 0.5); }
+
+.social-media {
+  background-color: transparent;
+  width: auto;
+  height: auto;
+  position: fixed;
+  left: 1%;
+  top: 10em;
+  bottom: auto;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #D8EFE4; }
+  .social-media a {
+    display: block;
+    width: 2em;
+    height: 3em;
+    background-size: 60% auto; }
+    .social-media a#mail {
+      background-size: 60% auto; }
+    .social-media a#facebook {
+      background-size: 40% auto; }
+
+main {
+  position: relative; }
+
+#inner-content ul.rslides {
+  height: 70vh; }
+  #inner-content ul.rslides li {
+    height: 70vh;
+    overflow: hidden; }
+    #inner-content ul.rslides li .slide img {
+      width: 100%;
+      height: auto;
+      min-height: 70vh; }
+    #inner-content ul.rslides li .slide h1 {
+      font-weight: bold;
+      font-size: 2em;
+      padding: 1em; }
+#inner-content .main-post-panel {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap; }
+  #inner-content .main-post-panel .post-views {
+    width: 33.33%;
+    padding: 0.3em; }
+
+.post-views > a {
+  display: block; }
+  .post-views > a h3.entry-title {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 3em;
+    color: #fff;
+    font-weight: bold; }
+
+.cat-views {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+  .cat-views a {
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 33%; }
+    .cat-views a .post-thumb {
+      position: relative; }
+      .cat-views a .post-thumb:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: 56.25%; }
+      .cat-views a .post-thumb > .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0; }
+      .cat-views a .post-thumb img {
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        width: 120%;
+        height: auto;
+        opacity: 1; }
+    .cat-views a:hover {
+      color: #fff; }
+      .cat-views a:hover .post-thumb img {
+        opacity: 0.5; }
+    .cat-views a p {
+      position: absolute;
+      width: 70%;
+      text-align: center;
+      left: 15%;
+      top: 30%; }
+
+#filters {
+  background-color: #fff;
+  color: #F95759;
+  display: flex;
+  align-items: center; }
+  #filters h2:nth-child(2) {
+    display: none; }
+  #filters .filter-head {
+    width: 15%; }
+    #filters .filter-head:after {
+      display: none; }
+  #filters button {
+    width: 10%;
+    margin: auto; }
+  #filters .filter-box {
+    width: 70%;
+    height: 20vh;
+    display: flex;
+    align-items: center; }
+
+ul.cat-icons {
+  align-items: center;
+  width: 100%; }
+  ul.cat-icons a {
+    width: 10%;
+    margin: auto; }
+
+#post-results, .post-listing {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: flex-start; }
+  #post-results .post-views, .post-listing .post-views {
+    width: 32%;
+    margin: 0.1em; }
+
+.single #post-results {
+  margin-left: 22%;
+  width: 83%; }
+
+.single #content, .page #content, .archive #content {
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+  margin-top: 0px;
+  padding-top: 5em;
+  margin-bottom: 30em;
+  z-index: 10; }
+.single .bottom-image, .page .bottom-image, .archive .bottom-image {
+  position: fixed;
+  bottom: -10em;
+  z-index: 8;
+  width: 100%; }
+  .single .bottom-image .caption, .page .bottom-image .caption, .archive .bottom-image .caption {
+    width: 10%;
+    color: #fff;
+    margin-left: 12%;
+    position: relative;
+    top: -30em;
+    border-color: #fff; }
+  .single .bottom-image img, .page .bottom-image img, .archive .bottom-image img {
+    width: 100%; }
+.single .background, .page .background, .archive .background {
+  position: fixed;
+  width: 90%;
+  height: 60%;
+  overflow: hidden; }
+  .single .background img, .page .background img, .archive .background img {
+    width: 100%;
+    height: auto; }
+.single .post-content, .page .post-content, .archive .post-content {
+  background-color: #fff;
+  padding-bottom: 6em; }
+.single .post-features, .page .post-features, .archive .post-features {
+  position: relative;
+  display: flex;
+  justify-content: left;
+  padding: 2.2em 0 1em 0; }
+  .single .post-features .post-meta, .page .post-features .post-meta, .archive .post-features .post-meta {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    position: relative; }
+    .single .post-features .post-meta .cats img, .page .post-features .post-meta .cats img, .archive .post-features .post-meta .cats img {
+      width: 1.8em; }
+  .single .post-features .excerpt, .page .post-features .excerpt, .archive .post-features .excerpt {
+    position: relative;
+    width: 70%;
+    padding: 1em 7%;
+    font-size: 1.2em;
+    line-height: 1.6em; }
+.single .headline .head-image, .page .headline .head-image, .archive .headline .head-image {
+  position: relative; }
+  .single .headline .head-image:before, .page .headline .head-image:before, .archive .headline .head-image:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 40%; }
+  .single .headline .head-image > .content, .page .headline .head-image > .content, .archive .headline .head-image > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+.single .headline h1, .page .headline h1, .archive .headline h1 {
+  top: 30%;
+  font-size: 2em; }
+.single .headline h2, .page .headline h2, .archive .headline h2 {
+  font-size: 1.7em;
+  top: 50%; }
+.single .archive-title, .page .archive-title, .archive .archive-title {
+  margin-left: 22%;
+  text-align: left;
+  border-bottom: 2px solid #D8EFE4; }
+.single .post-meta-item, .page .post-meta-item, .archive .post-meta-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 1.05em;
+  line-height: 1.9em;
+  width: 91%; }
+  .single .post-meta-item .meta-icon, .page .post-meta-item .meta-icon, .archive .post-meta-item .meta-icon {
+    width: 27%;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .single .post-meta-item .meta-icon h5, .page .post-meta-item .meta-icon h5, .archive .post-meta-item .meta-icon h5 {
+      margin: 0;
+      border: none; }
+    .single .post-meta-item .meta-icon img, .page .post-meta-item .meta-icon img, .archive .post-meta-item .meta-icon img {
+      margin: auto; }
+  .single .post-meta-item .featured, .page .post-meta-item .featured, .archive .post-meta-item .featured {
+    width: 82%;
+    text-align: left;
+    line-height: 1.9em3 img;
+      line-height-max-width: 100%; }
+.single .tags, .page .tags, .archive .tags {
+  margin-left: 22%; }
+.single .post-views .tags, .page .post-views .tags, .archive .post-views .tags {
+  margin-left: 0; }
+
+.ratings {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; }
+  .ratings .ocena {
+    width: 40%; }
+  .ratings .star-column {
+    width: 60%; }
+  .ratings .star-row {
+    width: 60%;
+    margin-left: 36%; }
+    .ratings .star-row img.gora-icon {
+      display: block;
+      width: 2em;
+      height: auto;
+      position: absolute;
+      left: -3em; }
+    .ratings .star-row:nth-child(3) img.gora-icon {
+      width: 1.5em;
+      left: -2.75em; }
+  .ratings a.trasa-mapa {
+    display: block;
+    width: 78%;
+    margin-left: 22%; }
+    .ratings a.trasa-mapa img {
+      width: 100%; }
+  .ratings.gora {
+    display: block; }
+    .ratings.gora .star-row {
+      width: 35%;
+      margin-left: 25%; }
+
+.lista .listy {
+  margin-left: 21%;
+  display: flex;
+  justify-content: space-between;
+  width: 76%; }
+  .lista .listy ul {
+    width: 40%;
+    margin: 1em auto; }
+    .lista .listy ul:before {
+      top: .2em;
+      left: -2.4em;
+      width: 1.8em;
+      height: 1.8em; }
+
+.archive .archive-title {
+  margin-left: auto;
+  text-align: center;
+  border: none;
+  margin-top: -2em; }
+
+.archive #content {
+  margin-bottom: 0;
+  padding-top: 10em; }
+
+.tresc {
+  margin-left: 22%;
+  width: 70%;
+  padding-top: 1em;
+  font-size: 1.05em; }
+  .tresc blockquote {
+    position: relative;
+    float: left;
+    width: 13%;
+    margin-left: -22%; }
+
+.page .post-content {
+  padding-bottom: 0; }
+.page .excerpt {
+  padding: 1em 12em;
+  line-height: 1.9em; }
+.page .tresc {
+  width: 100%;
+  margin-left: 12%;
+  width: 70%; }
+.page .tresc_singlepage p {
+  padding: 1em 12em; }
+
+#map {
+  position: relative; }
+  #map:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 40%; }
+  #map > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+
+.element {
+  visibility: hidden; }
+  .element:after {
+    content: '';
+    display: block;
+    clear: both; }
+
+.fadeIn {
+  -webkit-animation: animat_show 0.8s;
+  animation: animat_show 0.8s;
+  visibility: visible !important; }
+
+@-webkit-keyframes animat_show {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); }
+  100% {
+    opacity: 1;
+    transform: translateY(0px); } }
+.sub-menu {
+  display: block; }
+
+/*
+you can call the larger styles if you want, but there's really no need
+*/
+/******************************************************************
+ADDITIONAL IE FIXES
+These fixes are now ONLY seen by IE, so you don't have to worry
+about using prefixes, although it's best practice. For more info
+on using Modernizr classes, check out this link:
+http://www.modernizr.com/docs/
+******************************************************************/
+/*
+For example, you can use something like:
+
+.no-textshadow .class { ... }
+
+You can also target specific versions by using the classes applied to
+the html element. These can sometimes change, so take a look inside the
+header.php file to see what they are:
+
+
+.lt-ie8 .class { ... }
+
+*/
+
+/*# sourceMappingURL=ie.css.map */

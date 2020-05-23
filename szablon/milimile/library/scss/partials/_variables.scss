@@ -1,0 +1,52 @@
+/******************************************************************
+Site Name: milimile
+Author: Magda Zelezik
+
+Stylesheet: Variables
+
+Here is where we declare all our variables like colors, fonts,
+base values, and defaults. We want to make sure this file ONLY
+contains variables that way our files don't get all messy.
+No one likes a mess.
+
+******************************************************************/
+
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
+*********************/
+
+$alert-yellow:      #ebe16f;
+$alert-red:         #fbe3e4;
+$alert-green:       #e6efc2;
+$alert-blue:        #d5edf8;
+
+$black:             #000;
+$white:             #fff;
+
+
+$text-color:        $black;
+$dark-mint:         #7BAF94;
+
+$red:               #F95759;
+$red-op:			rgba(224,102,99,.5);
+
+$mint:             	#D8EFE4;
+
+
+
+$link-color:        $dark-mint;
+$link-hover:        darken($link-color, 9%);
+
+$border-color:      $mint;
+$disabled-gray:     lighten($mint, 9%);
+
+$regular-transition:     all 0.5s ease-in-out;
+$slow-transition:     all 1.2s ease-in-out;
+
+/*
+Here's a great tutorial on how to
+use color variables properly:
+http://sachagreif.com/sass-color-variables/
+*/
