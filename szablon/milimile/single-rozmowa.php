@@ -3,7 +3,9 @@
 			<div id="content">
 
 				<div id="inner-content" class="wrap cf">
+ 
 					<div class="background"><?php the_post_thumbnail('full'); ?></div>
+
 					<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); 
@@ -13,6 +15,7 @@
 							$main_content = apply_filters('the_content', $content['extended']);
 							$post_meta = get_post_custom();
 							$obrazek = $post_meta['_rozmowameta_miejsceimage'][0];
+
 						?>
 							<div class="headline">
 								<div class="head-image"><?php //the_post_thumbnail('large'); ?></div>
@@ -83,6 +86,7 @@
 			<div class="element sharing" >
 				<?php echo do_shortcode('[lana_fb_share]');?>
 			</div>
+
 			<h2 class="archive-title" style="font-size: 1em">Może cię zainteresować:</h2>
 			<div id="post-results">
 				<?php  
@@ -99,6 +103,7 @@
 				<?php echo do_shortcode('[Heateor-SC]');?>
 			</div>
 			
+
 						</div>
 
 			
@@ -117,5 +122,6 @@
 	?>
 
 </div>
+
 
 <?php get_footer(); ?>

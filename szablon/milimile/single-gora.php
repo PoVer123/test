@@ -4,6 +4,7 @@
 
 				<div id="inner-content" class="wrap cf">
 					<div class="background"><?php the_post_thumbnail('full'); ?></div>
+
 					<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); 
@@ -13,6 +14,7 @@
 							$main_content = apply_filters('the_content', $content['extended']);
 							$post_meta = get_post_custom();
 							$obrazek = $post_meta['_gorameta_miejsceimage'][0];
+
 						?>
 							<div class="headline">
 								<div class="head-image"><?php //the_post_thumbnail('large'); ?></div>
@@ -49,6 +51,7 @@
 
 										endif;
 										?>
+
 									</div>
 								</div>
 								 <div class="excerpt">
@@ -62,6 +65,7 @@
 							?>
 							<div class="ratings gora">
 								 	
+
 									<div class="star-row">
 										<img src="<?php echo get_template_directory_uri(); ?>/library/images/poziom.svg" alt="Ikona kategorii" class="gora-icon">
 										<p>Poziom trudności:</p>
@@ -77,6 +81,7 @@
 										<img src="<?php echo get_template_directory_uri(); ?>/library/images/punkt.svg" alt="Ikona kategorii" class="gora-icon">
 										<p>Najwyższy punkt:</p>
 										<p><?php echo esc_html($post_meta['_gorameta_npunkt'][0]); echo ' m n.p.m.';?></p>
+
 									</div>
 									<div class="star-row">
 										<img src="<?php echo get_template_directory_uri(); ?>/library/images/suma.svg" alt="Ikona kategorii" class="gora-icon">
@@ -84,6 +89,7 @@
 										<p><?php echo esc_html($post_meta['_gorameta_sumap'][0]); echo ' m';?></p>
 									</div>
 									<?php if($post_meta['_gorameta_trasaimage'][0]){?>
+
 									<a href="<?php echo esc_html($post_meta['_gorameta_urltrasy'][0]);?>" class="trasa-mapa">
 										<img src="<?php echo esc_html($post_meta['_gorameta_trasaimage'][0]);?>" alt="obraz trasy">
 
@@ -91,6 +97,7 @@
 									<?php };?>
 								 </div>
 							<?php };?>
+
 								 
 							<div class="tresc">
 								<?php
@@ -134,6 +141,7 @@
 				<?php echo do_shortcode('[lana_fb_share]');?>
 			</div>
 			
+
 			<h2 class="archive-title" style="font-size: 1em">Może cię zainteresować:</h2>
 			<div id="post-results">
 				<?php  
@@ -149,6 +157,7 @@
 			<div class="element sharing" >
 				<?php echo do_shortcode('[Heateor-SC]');?>
 			</div>
+
 						</div>
 
 						
@@ -167,5 +176,6 @@
 	?>
 
 </div>
+
 
 <?php get_footer(); ?>

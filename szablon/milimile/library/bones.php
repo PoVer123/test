@@ -1,6 +1,5 @@
 <?php
 
-
 function bones_head_cleanup() {
 	// category feeds
 	// remove_action( 'wp_head', 'feed_links_extra', 3 );
@@ -138,6 +137,7 @@ function bones_scripts_and_styles() {
 		*/
 		//for maps
 		$zmienna = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+
 		if($zmienna!=null){
 			$term = get_term_by('id', $zmienna->term_id, $zmienna->taxonomy);
 			if($term!=null){
@@ -150,7 +150,7 @@ function bones_scripts_and_styles() {
 			}
 			
 		}
-		
+
 
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'bones-js' );
@@ -173,6 +173,7 @@ add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
 function my_ajax_pagination() {
 	$name = $_POST['page'];
 	$country = $_POST['country'];
+
 	$optionTypes = array();
 	if(in_array('gory', $name)){
 		$optionTypes = array('miejsce', 'gora');
@@ -181,6 +182,7 @@ function my_ajax_pagination() {
 	}
    	$args = array(
    		'post_type' => $optionTypes,
+
    		'posts_per_page' => -1,
    		'paged' => $paged,
    		'tax_query' => array(
@@ -200,6 +202,7 @@ function my_ajax_pagination() {
 	    
    	);
     $posts = new WP_Query( $args );
+
     $allposts = new WP_Query(array(
     	'post_type' => array('miejsce', 'gora'), 
     	'posts_per_page'=> -1,
@@ -211,6 +214,7 @@ function my_ajax_pagination() {
     		)
     	))
     );
+
 
 
     
@@ -252,18 +256,23 @@ add_action( 'wp_enqueue_scripts', 'be_load_more_js' );
 function be_ajax_load_more() {
 
 	$name = $_POST['name'];
+
 	$pages =  $_POST['page'];
 	
 	$args = array('post_type' => array('miejsce', 'gora', 'rozmowa', 'gadzet'),
 			'paged' => esc_attr( $pages ),
 			'posts_per_page' => 18
+
 			);
 	
 	$taxonomytype = $_POST['taxname'];
 	$termname = $_POST['termname'];
 	$argspart = array('post_type' => $name,
+
 			'paged' => esc_attr( $pages ),
 			'posts_per_page' => 18,
+
+
 			'tax_query' => array(
 								array(
 									'taxonomy' => $taxonomytype,
@@ -306,6 +315,7 @@ function bones_theme_support() {
 	add_theme_support( 'post-thumbnails' );
 
 	// default thumb size
+
 	set_post_thumbnail_size(1500, 1000, true);
 
 

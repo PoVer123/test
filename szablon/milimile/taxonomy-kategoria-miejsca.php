@@ -58,6 +58,7 @@
 								            <?php echo 'We dwoje'; ?>
 								            </li>
 								            </a>
+
 								        <?php foreach ( $terms as $term ) { 
 								        	if (strcasecmp($term->slug, 'we-dwoje')&&strcasecmp($term->slug, 'z-dzieckiem')) {
 

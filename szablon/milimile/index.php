@@ -7,11 +7,13 @@
 							  <?php 
 							 $args = array( 'post_type' => array('miejsce', 'rozmowa', 'gadzet', 'gora'), 'posts_per_page' => 4, 'tag'=>'wyróżniony', 'orderby' => 'post_date',
 									'order' => 'DESC' );
+
 							  $loop = new WP_Query( $args );
 							  if ($loop->have_posts()) : while ($loop->have_posts()) : $loop->the_post(); ?>
 							  		<li>
 							  		
 						            <div class="slide">
+
 						            		<a href="<?php the_permalink();?>" class="image">
 						            		<?php echo get_the_post_thumbnail($post->ID, 'full');?>
 						            		<h1><?php echo the_title(); ?></h1>
@@ -28,7 +30,10 @@
 							<div class="latest-posts main-post-panel">
 								
 								<?php 
+
 								$args = array( 'post_type' => array('miejsce', 'rozmowa', 'gadzet', 'gora'), 'posts_per_page' => 6, 'orderby' => 'post_date',
+
+
 									'order' => 'DESC' );
 								$loop = new WP_Query( $args );
 								if ($loop->have_posts()) : while ($loop->have_posts()) : $loop->the_post(); ?>
@@ -51,7 +56,9 @@
 							<div class="featured-posts main-post-panel">
 							
 								<?php 
+
 								$args = array( 'post_type' => array('miejsce', 'rozmowa', 'gadzet', 'gora'), 'posts_per_page' => 6, 'tag'=>'special', 'orderby' => 'post_date',
+
 									'order' => 'DESC' );
 								$loop = new WP_Query( $args );
 								if ($loop->have_posts()) : while ($loop->have_posts()) : $loop->the_post(); ?>
@@ -74,6 +81,7 @@
 						</main>
 
 						<?php echo do_shortcode('[instagram-feed]');?>
+
 				</div>
 
 			</div>

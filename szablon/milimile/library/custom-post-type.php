@@ -79,7 +79,9 @@ function custom_post_miejsce() {
 	
 	// now let's add custom categories (these act like categories)
 	register_taxonomy( 'kategoria-miejsca', 
+
 		array('miejsce', 'gora'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+
 		array('hierarchical' => true,     /* if this is true, it acts like categories */
 			'labels' => array(
 				'name' => __( 'Kategorie miejsc', 'milimile' ), /* name of the custom taxonomy */
@@ -101,6 +103,7 @@ function custom_post_miejsce() {
 	);
 	register_taxonomy( 'typ-podrozy', 
 		array('miejsce', 'gora'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+
 		array('hierarchical' => true,     /* if this is true, it acts like categories */
 			'labels' => array(
 				'name' => __( 'Typy podróży', 'milimile' ), /* name of the custom taxonomy */
@@ -165,6 +168,7 @@ function cmb2_miejsce_metaboxes() {
 		
 	) );
 	$cmb->add_field( array(
+
 		'name'       => esc_html__( 'Szerokość geograficzna znacznika', 'cmb2' ),
 		'id'         => $prefix . 'latitude',
 		'type'       => 'text_small',
@@ -225,6 +229,7 @@ function cmb2_miejsce_metaboxes() {
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
 			'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt')
+
 		) /* end of options */
 	); /* end of register post type */
 	
@@ -293,6 +298,7 @@ function cmb2_rozmowa_metaboxes() {
 	) );
 	
 }
+
 	// Gadżety
 	function custom_post_gadzet() { 
 	// creating (registering) the custom type 
@@ -456,6 +462,7 @@ function cmb2_gadzet_metaboxes() {
 		'id'   => $prefix . 'miejsceimage',
 		'type' => 'file',
 	) );
+
 }
 	
 add_action( 'cmb2_init', 'gadzet_pros_repeatable_group_field_metabox' );
@@ -667,6 +674,7 @@ function cmb2_gory_metaboxes() {
 		'id'   => $prefix . 'miejsceimage',
 		'type' => 'file',
 	) );
+
 }
 	
 ?>

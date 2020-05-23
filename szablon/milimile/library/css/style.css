@@ -479,6 +479,7 @@ p {
   -webkit-hyphens: none;
   -moz-hyphens: none;
   hyphens: none;
+
   /*-webkit-font-feature-settings: "liga", "dlig";
   -moz-font-feature-settings: "liga=1, dlig=1";
   -ms-font-feature-settings: "liga", "dlig";
@@ -1311,6 +1312,7 @@ POSTS & CONTENT STYLES
 
 .single .background, .page .background {
   position: absolute;
+
   width: 99%;
   overflow: hidden;
   height: auto; 
@@ -1329,6 +1331,7 @@ POSTS & CONTENT STYLES
   left: 0;
   right: 0;
 }
+
 .single .headline, .page .headline {
   position: relative; }
   .single .headline .head-image, .page .headline .head-image {
@@ -1338,7 +1341,9 @@ POSTS & CONTENT STYLES
       display: block;
       content: "";
       width: 100%;
+
       padding-top: 66.67%; }
+
     .single .headline .head-image > .content, .page .headline .head-image > .content {
       position: absolute;
       top: 0;
@@ -1356,20 +1361,37 @@ POSTS & CONTENT STYLES
     font-family: "PT Serif", Cambria, Times New Roman, Times, serif;
     text-align: center;
     width: 80%;
+
     padding-bottom: 1.5em;
+
     border-bottom: 1px solid #fff;
     position: absolute;
     top: 20%;
     left: 10%; }
   .single .headline h2, .page .headline h2 {
-    display: none;}
+    
+    display: none;
+/*
+    color: #fff;
+    font-family: "PT Serif", Cambria, Times New Roman, Times, serif;
+    font-size: 1.2em;
+    margin: 0;
+    text-align: center;
+    width: 80%;
+    position: absolute;
+    top: 55%;
+    left: 10%;
+*/}
+
     .single .headline h2 p, .page .headline h2 p {
       margin: 0; }
 .single .post-meta, .page .post-meta {
   width: 100%;
   height: auto;
   padding: .5em;
+
   margin: 1.5em 0 0 0;
+
   border: 2px solid #F95759;
   display: flex;
   align-items: center;
@@ -1389,7 +1411,9 @@ POSTS & CONTENT STYLES
     .single .post-meta span:nth-child(1), .page .post-meta span:nth-child(1) {
       border-right: 2px solid #F95759; }
 .single .cats img, .page .cats img {
+
   width: 2em;
+
   height: auto; }
 .single .meta-icon, .page .meta-icon {
   text-align: center;
@@ -1428,6 +1452,7 @@ POSTS & CONTENT STYLES
     text-decoration: none;
     color: #F95759;
     font-style: italic; }
+
 .single .post-meta-item .featured img, .page .post-meta-item .featured img, .archive .post-meta-item .featured img{
           max-width: 100%!important;
           height: auto!important;
@@ -1438,6 +1463,7 @@ POSTS & CONTENT STYLES
 .post-meta-item .archive-title{
 	margin-bottom: .5em;
 }
+
 ul.cat-icons {
   display: flex;
   flex-wrap: wrap;
@@ -1474,7 +1500,10 @@ ul.cat-icons {
   background-color: #D8EFE4;
   color: #F95759;
   text-align: center;
+
   padding: 1em 0 1em 0;
+
+
   margin: 1em auto 2em auto; }
   #filters h2 {
     font-size: 1.2em;
@@ -1541,6 +1570,7 @@ ul.cat-icons {
     margin: 0 auto; }
   .page .tresc_singlepage div {
     padding: 2em 0em; }
+
 .page strong {
   color: #F95759;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
@@ -1550,6 +1580,7 @@ ul.cat-icons {
   display: inline-block;
   background-color: #D8EFE4;
   }
+
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -1610,6 +1641,7 @@ PAGE NAVI STYLES
 ul.rslides {
   margin: 0;
   width: 100%;
+
   height: auto;
   overflow: hidden;
   z-index: 9; }
@@ -1638,11 +1670,13 @@ ul.rslides {
         width: auto;
         height: 100%;
         }
+
       ul.rslides li .slide h1 {
         position: absolute;
         width: 50%;
         top: 10%;
         top: 5vh;
+
         left: 25%;
         color: #fff;
         text-align: center;
@@ -1651,6 +1685,7 @@ ul.rslides {
         ul.rslides li .slide a {
           font-family: "PT Serif", Cambria, Times New Roman, Times, serif;
         }
+
 
 ul.rslides_tabs {
   position: relative;
@@ -1698,13 +1733,16 @@ ul.rslides_tabs {
 .post-views .tags{
   margin: 1em 0;
 }
+
 .post-views .post-thumb {
   position: relative; }
   .post-views .post-thumb:before {
     display: block;
     content: "";
     width: 100%;
+
     padding-top: 66.66667%; }
+
   .post-views .post-thumb > .content {
     position: absolute;
     top: 0;
@@ -1728,11 +1766,13 @@ ul.rslides_tabs {
     overflow: hidden; }
 .post-views .tags {
   width: 100%;
+
   height: 4em;
   margin-left: 0; }
   .post-views ul.post-icons{
     margin-top: .8em;
   }
+
 .post-views ul.post-icons li {
   display: inline-block; }
   .post-views ul.post-icons li img {
@@ -1745,11 +1785,13 @@ ul.rslides_tabs {
   padding-bottom: 3em;
   margin-bottom: 3em;
 }
+
 .cat-views {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start; }
+
   .cat-views a {
     display: block;
     width: 50%;
@@ -1803,6 +1845,7 @@ ul.rslides_tabs {
     margin: auto; 
     margin-top: 1em;
 }
+
   .ratings .star-row {
     display: flex;
     align-items: center;
@@ -1902,6 +1945,7 @@ ul.rslides_tabs {
       margin-left: -1em;
       margin-top: 1em;
       margin-bottom: 1em;
+
       background-size: 100% 100%;
       background-repeat: no-repeat; }
     .lista ul#pros:before {
@@ -1985,6 +2029,7 @@ ul.rslides_tabs {
 .load-more:hover{
   opacity: 0.7;
 }
+
 
 .ball {
   width: 10px;
@@ -2447,6 +2492,7 @@ ul.rslides li .slide h1{
     left: 10%; 
     display: block;
 }
+
   /* links widget */
   /* meta widget */
   /* pages widget */
@@ -2595,6 +2641,7 @@ you can add resource intensive styles.
       .sharing{
       	padding-left: 22%;
       }
+
   footer, .footer {
     width: 100%;
     height: 15em;
@@ -2616,6 +2663,7 @@ you can add resource intensive styles.
         bottom: 0px;
         top: 0px;
         margin-top: 3.2em;
+
         width: 100%;
         height: auto;
         text-align: left;
@@ -2625,6 +2673,7 @@ you can add resource intensive styles.
           float: none;
           text-align: left;
           padding-bottom: .7em;
+
           border-bottom: none; }
           footer #inner-footer .footer-nav li a, .footer #inner-footer .footer-nav li a {
             padding: 0em; }
@@ -2663,6 +2712,7 @@ you can add resource intensive styles.
           font-family: "PT Sans", Helvetica, Arial, sans-serif;
           margin: 0em;
           margin-bottom: 0.8em;
+
           font-size: 1em; }
         footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields, .footer #sidebar1 .widget_mc4wp_form_widget .mc4wp-form-fields {
           display: flex;
@@ -2692,6 +2742,7 @@ you can add resource intensive styles.
               background-color: #F95759;
               font-size: 0.9em;
               padding: 0.93em;
+
               border: none;
               font-family: "PT Sans", Helvetica, Arial, sans-serif;
               text-transform: uppercase;
@@ -2753,6 +2804,7 @@ you can add resource intensive styles.
         height: auto;
         /*min-height: 70vh; */
       }
+
       #inner-content ul.rslides li .slide h1 {
         font-weight: bold;
         font-size: 2em;
@@ -2773,6 +2825,7 @@ you can add resource intensive styles.
       width: 100%;
       position: absolute;
       padding: 0 1em;
+
       top: 3em;
       color: #fff;
       font-weight: bold; }
@@ -2781,6 +2834,7 @@ you can add resource intensive styles.
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start; }
+
     .cat-views a {
       font-size: 1.5em;
       font-weight: bold;
@@ -2792,6 +2846,7 @@ you can add resource intensive styles.
           content: "";
           width: 100%;
           padding-top: 66.66667%; }
+
         .cat-views a .post-thumb > .content {
           position: absolute;
           top: 0;
@@ -2897,6 +2952,7 @@ you can add resource intensive styles.
   right: 0;
   margin-left: 0;
 }
+
   .single .post-content, .page .post-content, .archive .post-content {
     background-color: #fff;
     padding-bottom: 6em; }
@@ -2907,6 +2963,7 @@ you can add resource intensive styles.
     padding: 2.2em 0 1em 0; }
     .single .post-features .post-meta, .page .post-features .post-meta, .archive .post-features .post-meta {
       width: 17%;
+
       display: flex;
       flex-direction: column;
       position: relative; }
@@ -2916,6 +2973,7 @@ you can add resource intensive styles.
       position: relative;
       width: 70%;
       padding: 1em 2% 1em 5%;
+
       font-size: 1.2em;
       line-height: 1.6em; }
   .single .headline .head-image, .page .headline .head-image, .archive .headline .head-image {
@@ -2925,6 +2983,7 @@ you can add resource intensive styles.
       content: "";
       width: 100%;
       padding-top: 66.667%; }
+
     .single .headline .head-image > .content, .page .headline .head-image > .content, .archive .headline .head-image > .content {
       position: absolute;
       top: 0;
@@ -2959,6 +3018,7 @@ you can add resource intensive styles.
       flex-direction: column;
       align-items: center; 
       margin-top: 1em;}
+
       .single .post-meta-item .meta-icon h5, .page .post-meta-item .meta-icon h5, .archive .post-meta-item .meta-icon h5 {
         margin: 0;
         border: none; }
@@ -2970,7 +3030,7 @@ you can add resource intensive styles.
       text-align: left;
       line-height: 1.9em;
     }
-        
+
   .single .tags, .page .tags, .archive .tags {
     margin-left: 22%; }
   .single .post-views .tags, .page .post-views .tags, .archive .post-views .tags {
@@ -3021,7 +3081,7 @@ you can add resource intensive styles.
         left: -2.4em;
         width: 1.8em;
         height: 1.8em; }
-      
+
   .archive .archive-title {
     margin-left: auto;
     text-align: center;
@@ -3042,6 +3102,7 @@ you can add resource intensive styles.
       float: left;
       width: 17%;
       margin-left: -28%; }
+
 
   .page .post-content {
     padding-bottom: 0; }
@@ -3081,6 +3142,7 @@ you can add resource intensive styles.
       	max-width: 100%;
       	height: auto;
       }
+
   .fadeIn {
     -webkit-animation: animat_show 0.8s;
     animation: animat_show 0.8s;
@@ -3140,6 +3202,7 @@ query for retina AND a certain size if you want. Go Nuts.
     width: 24px;
     height: 24px;
     background: url(img/test.png) no-repeat;
+
   }
   
   For retina screens, we have to make some adjustments, so that image
@@ -3149,6 +3212,7 @@ query for retina AND a certain size if you want. Go Nuts.
   .icon {
     background: url(img/test@2x.png) no-repeat;
     background-size: 24px 24px;
+
   }
   
   So, you would create the same icon, but at double the resolution, meaning 

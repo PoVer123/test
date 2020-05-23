@@ -12,6 +12,7 @@
 			$obrazek = $post_meta['_miejscemeta_miejsceimage'][0];
 			?>
 		<div class="background"><?php the_post_thumbnail('full'); ?></div>
+
 		<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 
@@ -40,6 +41,7 @@
 											if ( $terms && !is_wp_error( $terms ) ) :
 												$counter = 0;
 												foreach ( $terms as $term ) if($counter <3 ){{ ?>
+
 
 											<a href="<?php echo get_term_link($term->slug, $taxonomy); ?>" id="<?php echo $term->slug;?>">
 												<img src="<?php echo get_template_directory_uri(); ?>/library/images/icons/<?php echo $term->slug;?>.png" alt="<?php echo $term->name; ?>">
@@ -71,6 +73,7 @@
 						?>
 					<div class="element post-meta-item">
 					
+
 						<div class="meta-icon">
 							<h5 class="archive-title">Polecam</h5>
 							<img src="<?php echo get_template_directory_uri(); ?>/library/images/spanie.png" alt="icon for spanie">
@@ -90,6 +93,7 @@
 						?>
 					<div class="element post-meta-item">
 					
+
 						<div class="meta-icon">
 							<h5 class="archive-title">Polecam</h5>
 							<img src="<?php echo get_template_directory_uri(); ?>/library/images/dystans.svg" alt="icon for trasa">
@@ -109,6 +113,7 @@
 						?>
 					<div class="element post-meta-item">
 					
+
 						<div class="meta-icon">
 							<h5 class="archive-title">Polecam</h5>
 							<img src="<?php echo get_template_directory_uri(); ?>/library/images/jedzenie.png" alt="icon for spanie">
@@ -141,6 +146,7 @@
 					</div>
 					<?php };?>
 
+
 				<?php endwhile; ?>
 
 			<?php else : ?>
@@ -165,6 +171,7 @@
 				<?php echo do_shortcode('[lana_fb_share]');?>
 			</div>
 			
+
 			<h2 class="archive-title" style="font-size: 1em">Może cię zainteresować:</h2>
 			<div id="post-results">
 				<?php  
@@ -179,6 +186,7 @@
 			</div>
 			<div class="element sharing" >
 				<?php echo do_shortcode('[Heateor-SC]');?>
+
 			</div>
 			
 		</main>
