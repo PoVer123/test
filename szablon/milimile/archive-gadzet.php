@@ -5,10 +5,11 @@
 	<div id="inner-content" class="wrap cf">
 
 		<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
-
 			<?php
+      //dodane UPDATE
 			the_archive_title( '<h1 class="archive-title">', '</h1>' );
 			?>
+
 			<div id="post-results">
 				<?php
 				$taxonomy = 'typ-gadzet';

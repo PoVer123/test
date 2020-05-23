@@ -11,7 +11,8 @@
 			$post_meta = get_post_custom();
 			$obrazek = $post_meta['_miejscemeta_miejsceimage'][0];
 			?>
-		<div class="background"><?php the_post_thumbnail('large'); ?></div>
+		<div class="background"><?php the_post_thumbnail('full'); ?></div>
+
 		<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 
@@ -39,7 +40,8 @@
 
 											if ( $terms && !is_wp_error( $terms ) ) :
 												$counter = 0;
-												foreach ( $terms as $term ) if($counter <2 ){{ ?>
+												foreach ( $terms as $term ) if($counter <3 ){{ ?>
+
 
 											<a href="<?php echo get_term_link($term->slug, $taxonomy); ?>" id="<?php echo $term->slug;?>">
 												<img src="<?php echo get_template_directory_uri(); ?>/library/images/icons/<?php echo $term->slug;?>.png" alt="<?php echo $term->name; ?>">
@@ -64,31 +66,34 @@
 						echo $main_content;
 						?>
 					</div>
-					<div>
-
-
-					</div>
 					
-					<div class="element post-meta-item">
 					<?php 
-					$text = get_post_meta( get_the_ID(), '_miejscemeta_spanie', true );
-					if($text){
+					$texts = get_post_meta( get_the_ID(), '_miejscemeta_spanie', true );
+					if($texts){
 						?>
+					<div class="element post-meta-item">
+					
+
 						<div class="meta-icon">
 							<h5 class="archive-title">Polecam</h5>
 							<img src="<?php echo get_template_directory_uri(); ?>/library/images/spanie.png" alt="icon for spanie">
 							
 						</div>
 						<div class="featured"><?php
-						echo apply_filters( 'the_content',$text );
-					}
-					?></div>
-					</div>
-					<div class="element post-meta-item">
-					<?php 
-					$text = get_post_meta( get_the_ID(), '_miejscemeta_trasa', true );
-					if($text){
+							echo apply_filters( 'the_content',$texts );					
 						?>
+							
+						</div>
+
+					</div>
+					<?php };?>
+					<?php 
+					$textt = get_post_meta( get_the_ID(), '_miejscemeta_trasa', true );
+					if($textt){
+						?>
+					<div class="element post-meta-item">
+					
+
 						<div class="meta-icon">
 							<h5 class="archive-title">Polecam</h5>
 							<img src="<?php echo get_template_directory_uri(); ?>/library/images/dystans.svg" alt="icon for trasa">
@@ -96,27 +101,51 @@
 						</div>
 						<div class="featured">
 						<?php
-						echo apply_filters( 'the_content',$text );
-					}
+						echo apply_filters( 'the_content',$textt );
+					
 					?></div>
 					</div>
-					<div class="element post-meta-item">
+					<?php };?>
 					<?php 
-					$text = get_post_meta( get_the_ID(), '_miejscemeta_jedzenie', true );
+					$textj = get_post_meta( get_the_ID(), '_miejscemeta_jedzenie', true );
 
-					if($text){
+					if($textj){
 						?>
+					<div class="element post-meta-item">
+					
+
 						<div class="meta-icon">
 							<h5 class="archive-title">Polecam</h5>
 							<img src="<?php echo get_template_directory_uri(); ?>/library/images/jedzenie.png" alt="icon for spanie">
 							
 						</div>
 						<div class="featured"><?php
-						echo apply_filters( 'the_content',$text );
-					}
+						echo apply_filters( 'the_content',$textj );
+					
 					?></div>
 
 					</div>
+					<?php };?>
+					<?php 
+					$textd = get_post_meta( get_the_ID(), '_miejscemeta_dladzieci', true );
+
+					if($textd){
+						?>
+					<div class="element post-meta-item">
+					
+						<div class="meta-icon">
+							<h5 class="archive-title">Dla dzieci</h5>
+							<img src="<?php echo get_template_directory_uri(); ?>/library/images/carousel.png" alt="icon for spanie">
+							
+						</div>
+						<div class="featured"><?php
+						echo apply_filters( 'the_content',$textd );
+					
+					?></div>
+
+					</div>
+					<?php };?>
+
 
 				<?php endwhile; ?>
 
@@ -137,6 +166,12 @@
 			} ?>
 			<p class="post-tag">Opublikowano: <?php echo get_the_time('j-m-Y');?></p>
 			</div>
+			
+			<div class="element sharing" >
+				<?php echo do_shortcode('[lana_fb_share]');?>
+			</div>
+			
+
 			<h2 class="archive-title" style="font-size: 1em">Może cię zainteresować:</h2>
 			<div id="post-results">
 				<?php  
@@ -149,6 +184,9 @@
 					}
 				?>
 			</div>
+			<div class="element sharing" >
+				<?php echo do_shortcode('[Heateor-SC]');?>
+
 			</div>
 			
 		</main>

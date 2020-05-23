@@ -1,31 +1,4 @@
 <?php
-/* Welcome to Bones :)
-This is the core Bones file where most of the
-main functions & features reside. If you have
-any custom functions, it's best to put them
-in the functions.php file.
-
-Developed by: Eddie Machado
-URL: http://themble.com/bones/
-
-  - head cleanup (remove rsd, uri links, junk css, ect)
-  - enqueueing scripts & styles
-  - theme support functions
-  - custom menu output & fallbacks
-  - related post function
-  - page-navi function
-  - removing <p> from around images
-  - customizing the post excerpt
-
-*/
-
-/*********************
-WP_HEAD GOODNESS
-The default wordpress head is
-a mess. Let's clean it up by
-removing all the junk we don't
-need.
-*********************/
 
 function bones_head_cleanup() {
 	// category feeds
@@ -164,13 +137,20 @@ function bones_scripts_and_styles() {
 		*/
 		//for maps
 		$zmienna = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-		$term = get_term_by('id', $zmienna->term_id, $zmienna->taxonomy);
-		$dataToBePassed = array(
-		    'latitude' => get_field('latitude', $term),
-		    'longtitude' => get_field('longtitude', $term),
-		    'zoom' => get_field('zoom', $term)
-		);
-		wp_localize_script( 'bones-js', 'php_vars', $dataToBePassed );
+
+		if($zmienna!=null){
+			$term = get_term_by('id', $zmienna->term_id, $zmienna->taxonomy);
+			if($term!=null){
+				$dataToBePassed = array(
+				    'latitude' => get_field('latitude', $term),
+				    'longtitude' => get_field('longtitude', $term),
+				    'zoom' => get_field('zoom', $term)
+				);
+				wp_localize_script( 'bones-js', 'php_vars', $dataToBePassed );
+			}
+			
+		}
+
 
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'bones-js' );
@@ -193,8 +173,16 @@ add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
 function my_ajax_pagination() {
 	$name = $_POST['page'];
 	$country = $_POST['country'];
+
+	$optionTypes = array();
+	if(in_array('gory', $name)){
+		$optionTypes = array('miejsce', 'gora');
+	}else{
+		$optionTypes = array('miejsce');
+	}
    	$args = array(
-   		'post_type' => 'miejsce',
+   		'post_type' => $optionTypes,
+
    		'posts_per_page' => -1,
    		'paged' => $paged,
    		'tax_query' => array(
@@ -214,7 +202,19 @@ function my_ajax_pagination() {
 	    
    	);
     $posts = new WP_Query( $args );
-    $allposts = new WP_Query(array('post_type' => 'miejsce', 'posts_per_page'=> -1));
+
+    $allposts = new WP_Query(array(
+    	'post_type' => array('miejsce', 'gora'), 
+    	'posts_per_page'=> -1,
+    	'paged' => $paged, 
+    	'tax_query' => array(array(
+    		'taxonomy' => 'kategoria-miejsca',
+	        	'field' => 'slug',
+	        	'terms' => $country
+    		)
+    	))
+    );
+
 
 
     
@@ -225,6 +225,7 @@ function my_ajax_pagination() {
     
 	        }
 	     }else if (in_array('wszystkie', $name)){
+
 	     		while ( $allposts->have_posts() ) { 
 		            $allposts->the_post();
 		            get_template_part( 'content', 'posttile' );
@@ -255,18 +256,23 @@ add_action( 'wp_enqueue_scripts', 'be_load_more_js' );
 function be_ajax_load_more() {
 
 	$name = $_POST['name'];
-	
 
+	$pages =  $_POST['page'];
+	
 	$args = array('post_type' => array('miejsce', 'gora', 'rozmowa', 'gadzet'),
-			'paged' => esc_attr( $_POST['page'] ),
-			'posts_per_page' => 3
+			'paged' => esc_attr( $pages ),
+			'posts_per_page' => 18
+
 			);
 	
 	$taxonomytype = $_POST['taxname'];
 	$termname = $_POST['termname'];
 	$argspart = array('post_type' => $name,
-			'paged' => esc_attr( $_POST['page'] ),
-			'posts_per_page' => 3,
+
+			'paged' => esc_attr( $pages ),
+			'posts_per_page' => 18,
+
+
 			'tax_query' => array(
 								array(
 									'taxonomy' => $taxonomytype,
@@ -309,7 +315,8 @@ function bones_theme_support() {
 	add_theme_support( 'post-thumbnails' );
 
 	// default thumb size
-	set_post_thumbnail_size(125, 125, true);
+
+	set_post_thumbnail_size(1500, 1000, true);
 
 
 

@@ -42,19 +42,23 @@
 								if ( $terms && !is_wp_error( $terms ) ) :
 								?>
 								    <ul class="cat-icons" id="<?php echo $zmienna->slug;?>">
-								    <?php foreach ( $terms as $term ) { 
-								        	if (!strcasecmp($term->slug, 'we-dwoje') || !strcasecmp($term->slug, 'z-dzieckiem')) {
-								        	?>
-								            <a href="<?php echo get_term_link($term->slug, $taxonomy); ?>" id="<?php echo $term->slug;?>">
+								    	<a href="<?php echo get_term_link('z-dzieckiem', $taxonomy); ?>" id="<?php echo 'z-dzieckiem';?>">
 								            <li>
 								            <div class="tax-img">
-								            <img src="<?php echo get_template_directory_uri(); ?>/library/images/icons/<?php echo $term->slug;?>.png" alt="<?php echo $term->name; ?>">
+								            <img src="<?php echo get_template_directory_uri(); ?>/library/images/icons/<?php echo 'z-dzieckiem';?>.png" alt="<?php echo 'Z dzieckiem'; ?>">
 								            </div>
-								            <?php echo $term->name; ?>
+								            <?php echo 'Z dzieckiem'; ?>
 								            </li>
 								            </a>
-								        <?php }
-								        } ?>
+								            <a href="<?php echo get_term_link('we-dwoje', $taxonomy); ?>" id="<?php echo 'we-dwoje';?>">
+								            <li>
+								            <div class="tax-img">
+								            <img src="<?php echo get_template_directory_uri(); ?>/library/images/icons/<?php echo 'we-dwoje';?>.png" alt="<?php echo 'We dwoje'; ?>">
+								            </div>
+								            <?php echo 'We dwoje'; ?>
+								            </li>
+								            </a>
+
 								        <?php foreach ( $terms as $term ) { 
 								        	if (strcasecmp($term->slug, 'we-dwoje')&&strcasecmp($term->slug, 'z-dzieckiem')) {
 

@@ -30,10 +30,12 @@
 				<a href="mailto:kontakt@milimile.pl" id="mail">
 					<!-- <img src="<?php echo get_template_directory_uri(); ?>/library/images/mail.svg" alt="mail icon"> -->
 				</a>
-				<a href="instagram" id="instagram">
+
+				<a href="https://www.instagram.com/milimile.pl/" id="instagram">
 					<!-- <img src="<?php echo get_template_directory_uri(); ?>/library/images/instagram.svg" alt="instagram icon"> -->
 				</a>
-				<a href="facebook" id="facebook">
+				<a href="https://www.facebook.com/milimilepl/" id="facebook">
+
 					<!-- <img src="<?php echo get_template_directory_uri(); ?>/library/images/facebook.svg" alt="facebook icon"> -->
 				</a>
 				<a href="search" id="search">

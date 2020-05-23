@@ -79,7 +79,9 @@ function custom_post_miejsce() {
 	
 	// now let's add custom categories (these act like categories)
 	register_taxonomy( 'kategoria-miejsca', 
-		array('miejsce'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+
+		array('miejsce', 'gora'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+
 		array('hierarchical' => true,     /* if this is true, it acts like categories */
 			'labels' => array(
 				'name' => __( 'Kategorie miejsc', 'milimile' ), /* name of the custom taxonomy */
@@ -100,7 +102,8 @@ function custom_post_miejsce() {
 		)
 	);
 	register_taxonomy( 'typ-podrozy', 
-		array('miejsce'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+		array('miejsce', 'gora'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+
 		array('hierarchical' => true,     /* if this is true, it acts like categories */
 			'labels' => array(
 				'name' => __( 'Typy podróży', 'milimile' ), /* name of the custom taxonomy */
@@ -159,6 +162,13 @@ function cmb2_miejsce_metaboxes() {
 		
 	) );
 	$cmb->add_field( array(
+		'name'       => esc_html__( 'Dla dzieci', 'cmb2' ),
+		'id'         => $prefix . 'dladzieci',
+		'type'       => 'wysiwyg',
+		
+	) );
+	$cmb->add_field( array(
+
 		'name'       => esc_html__( 'Szerokość geograficzna znacznika', 'cmb2' ),
 		'id'         => $prefix . 'latitude',
 		'type'       => 'text_small',
@@ -218,7 +228,8 @@ function cmb2_miejsce_metaboxes() {
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
-			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments',  'sticky')
+			'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt')
+
 		) /* end of options */
 	); /* end of register post type */
 	
@@ -259,6 +270,35 @@ function cmb2_miejsce_metaboxes() {
 			'rewrite' => array( 'slug' => 'typ-rozmowy' ),
 		)
 	);
+add_action( 'cmb2_init', 'cmb2_rozmowa_metaboxes' );
+function cmb2_rozmowa_metaboxes() {
+
+	// Start with an underscore to hide fields from custom fields list
+	$prefix = '_rozmowameta_';
+
+	/**
+	 * Initiate the metabox
+	 */
+	$cmb = new_cmb2_box( array(
+		'id'            => 'polerozmowy',
+		'title'         => __( 'Pole dodatkowe: ', 'cmb2' ),
+		'object_types'  => array( 'rozmowa', ), // Post type
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true, // Show field names on the left
+	) );
+
+	
+	
+	$cmb->add_field( array(
+		'name' => esc_html__( 'Obraz dolny', 'cmb2' ),
+		'desc' => esc_html__( 'Dodaj obraz z galerii', 'cmb2' ),
+		'id'   => $prefix . 'miejsceimage',
+		'type' => 'file',
+	) );
+	
+}
+
 	// Gadżety
 	function custom_post_gadzet() { 
 	// creating (registering) the custom type 
@@ -413,9 +453,16 @@ function cmb2_gadzet_metaboxes() {
 	$cmb->add_field( array(
 		'name'       => esc_html__( 'Gdzie kupić', 'cmb2' ),
 		'id'         => $prefix . 'textarea',
-		'type'       => 'textarea',
+		'type'       => 'wysiwyg',
 		
 	) );
+	$cmb->add_field( array(
+		'name' => esc_html__( 'Obraz dolny', 'cmb2' ),
+		'desc' => esc_html__( 'Dodaj obraz z galerii', 'cmb2' ),
+		'id'   => $prefix . 'miejsceimage',
+		'type' => 'file',
+	) );
+
 }
 	
 add_action( 'cmb2_init', 'gadzet_pros_repeatable_group_field_metabox' );
@@ -609,6 +656,25 @@ function cmb2_gory_metaboxes() {
 		'id'   => $prefix . 'trasaimage',
 		'type' => 'file',
 	) );
+	$cmb->add_field( array(
+		'name'       => esc_html__( 'Szerokość geograficzna znacznika (opcjonalnie)', 'cmb2' ),
+		'id'         => $prefix . 'latitude',
+		'type'       => 'text_small',
+		
+	) );
+	$cmb->add_field( array(
+		'name'       => esc_html__( 'Długość geograficzna znacznika (opcjonalnie)', 'cmb2' ),
+		'id'         => $prefix . 'longtitude',
+		'type'       => 'text_small',
+		
+	) );
+	$cmb->add_field( array(
+		'name' => esc_html__( 'Obraz dolny', 'cmb2' ),
+		'desc' => esc_html__( 'Dodaj obraz z galerii', 'cmb2' ),
+		'id'   => $prefix . 'miejsceimage',
+		'type' => 'file',
+	) );
+
 }
 	
 ?>
